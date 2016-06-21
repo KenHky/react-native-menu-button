@@ -1,0 +1,21 @@
+{
+  "name": "react-native-menu-button",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KenHky/react-native-menu-button"
+  },
+  "files": [
+    "menu",
+    "index",
+    "style"
+  ],
+  "keywords": [
+    "react-native",
+    "react",
+    "android",
+    "ios"
+  ]
+}
