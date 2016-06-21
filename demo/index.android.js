@@ -8,10 +8,13 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  StatusBar,
 } from 'react-native';
 
 import MenuButton from 'react-native-menu-button'
+
+const ExtraDimensions = require('react-native-extra-dimensions-android');
 
 class AwesomeProject extends Component {
   componentDidMount() {
@@ -33,6 +36,9 @@ class AwesomeProject extends Component {
     return (
       <View>
         <View style={styles.top}>
+        <StatusBar
+          translucent={true}
+        />
           <MenuButton  buttonStyle={[styles.rightButton]} menuGroup={menuGroup}
             onSelect={this._handleOnSelect.bind(this)}/>
         </View>
@@ -44,10 +50,10 @@ class AwesomeProject extends Component {
 
 const styles = StyleSheet.create({
   top:{
-    backgroundColor: '#FFFFFF',
-    paddingTop: 20,
+    backgroundColor: '#ffffff',
+    marginTop:ExtraDimensions.get('STATUS_BAR_HEIGHT'),
     top: 0,
-    height: 64,
+    height: 44,
     right: 0,
     left: 0,
     borderBottomWidth: 0.5,
@@ -59,11 +65,12 @@ const styles = StyleSheet.create({
   },
   rightButton: {
     width: 100,
-    height: 37,
+    height: 36,
     position: 'absolute',
-    bottom: 8,
+    bottom: 0,
     right: 2,
-    padding: 8
+    margin: 4,
+    paddingRight: 8,
   },
 });
 

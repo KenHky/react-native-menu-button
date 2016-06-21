@@ -12,11 +12,6 @@ const {
 } = require('react-native')
 let nextID = 1;
 
-let ExtraDimensions = {}
-if (Platform.OS === 'android') {
-    ExtraDimensions = require('react-native-extra-dimensions-android');
-}
-
 
 
 const Components = {PropTypes,TouchableOpacity,Text,View,StyleSheet,Modal,Dimensions,TouchableWithoutFeedback}
@@ -73,7 +68,7 @@ const MenuButton = React.createClass({
         const {openMenu,menuName,layout} = this.state
         const {buttonStyle,menuGroup,optionsStyle} = this.props
         const window = Dimensions.get('window');
-        const optionsStyles = Platform.OS === 'android'?{...optionsStyle,top:layout.y-ExtraDimensions.get('STATUS_BAR_HEIGHT'),right:(window.width-layout.x-layout.width)}:{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}
+        const optionsStyles = Platform.OS === 'android'?{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}:{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}
         console.log("optionsStyles.....",optionsStyles)
         return (
             <View style={buttonStyle} onLayout={this.onLayout}>
