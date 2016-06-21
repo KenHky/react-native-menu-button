@@ -21,7 +21,7 @@ if (Platform.OS === 'android') {
 
 const Components = {PropTypes,TouchableOpacity,Text,View,StyleSheet,Modal,Dimensions,TouchableWithoutFeedback}
 
-const Styles = require('./style')(React,Components);
+const Styles = require('./menu/style')(React,Components);
 
 const {
   MenuSwitch,
