@@ -1,7 +1,7 @@
 {
   "name": "react-native-menu-button",
   "version": "0.0.1",
-  "description": "",
+  "description": "A simple dropdown menu button for react native",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,5 +17,7 @@
     "react",
     "android",
     "ios"
-  ]
+  ],
+  "author": "Ken Huang <ken.hky@163.com> ",
+  "license": "MIT"
 }

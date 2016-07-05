@@ -27,11 +27,6 @@ const {
 
 
 const MenuButton = React.createClass({
-    // 暴露的接口：
-    //     buttonStyle：按钮的样式
-    //     optionsStyle：menu组的样式
-    //     menuGroup：menu数据，格式为[{key:num or str,value:num or str,text:num or str,hide:Boolean}]
-    //     onSelect：选择一个选项后的回调，fun
     getInitialState() {
         return {
             openMenu:'',
