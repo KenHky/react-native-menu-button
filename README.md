@@ -13,13 +13,15 @@ dropdown menu button for react native
 
 ### API
 api很简单，
-buttonStyle：按钮的样式，可覆盖默认样式。。
+buttonStyle：按钮的样式，可覆盖默认样式。
 
 optionsStyle：menu组的样式，可覆盖默认的样式。
 
 menuGroup：menu数据，格式为[{key:num or str,value:num or str,text:str,hide:Boolean}]。value为点击发生后传的值，text为显示的字符串，hide为true时隐藏该条数据，默认为false。
 
 onSelect：选择一个选项后的回调，参数为menu数据的value值。
+
+button：可定制按钮，默认为{(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)} (0.1.0新增)。
 
 ### demo
 

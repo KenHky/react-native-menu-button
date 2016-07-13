@@ -1,4 +1,4 @@
-const React = require('react-native')
+const React = require('react')
 const {
     PropTypes,
     TouchableOpacity,
@@ -61,13 +61,13 @@ const MenuButton = React.createClass({
     },
     render () {
         const {openMenu,menuName,layout} = this.state
-        const {buttonStyle,menuGroup,optionsStyle} = this.props
-        const window = Dimensions.get('window');
+        const {buttonStyle,menuGroup,optionsStyle,button} = this.props
+        const window = Dimensions.get('window')
         const optionsStyles = Platform.OS === 'android'?{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}:{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}
-        console.log("optionsStyles.....",optionsStyles)
+        const buttonContent = button?button:(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)
         return (
             <View style={buttonStyle} onLayout={this.onLayout}>
-                <MenuSwitch content={(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)} onPress={this.toggleMenu}></MenuSwitch>
+                <MenuSwitch content={buttonContent} onPress={this.toggleMenu}></MenuSwitch>
                 {
                     openMenu==menuName?(
                         <MenuModal onPress={this.closeMenu}>
