@@ -63,7 +63,7 @@ const MenuButton = React.createClass({
     },
     render () {
         const {openMenu,menuName,layout,selectMenu} = this.state
-        const {buttonStyle,menuGroup,optionsStyle,button,optionStyle,optionSelectedStyle} = this.props
+        const {buttonStyle,menuGroup,optionsStyle,button,optionStyle,selectedOptionStyle,optionTextStyle,selectedOptionTextStyle} = this.props
         const window = Dimensions.get('window')
         const optionsStyles = Platform.OS === 'android'?{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}:{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}
         const buttonContent = button?button:(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)
@@ -78,12 +78,18 @@ const MenuButton = React.createClass({
                                         menuGroup.map((menu)=> {
                                             if (!menu.hide) {
                                                 let selectStyle = ''
-                                                if (selectMenu==menu.value&&optionSelectedStyle) {
-                                                    selectStyle = optionSelectedStyle
+                                                let selectTextStyle = ''
+                                                if (selectMenu==menu.value) {
+                                                    if (selectedOptionStyle) {
+                                                        selectStyle = selectedOptionStyle
+                                                    }
+                                                    if (selectedOptionTextStyle) {
+                                                        selectTextStyle = selectedOptionTextStyle
+                                                    }
                                                 }
                                                 return (
                                                     <MenuOption key={menu.key} onPress={this.onPress.bind(null,menu.value)}  style={[optionStyle,selectStyle]}>
-                                                        <Text>{menu.text}</Text>
+                                                        <Text style={[optionTextStyle,selectTextStyle]}>{menu.text}</Text>
                                                     </MenuOption>
                                                 )
                                             }

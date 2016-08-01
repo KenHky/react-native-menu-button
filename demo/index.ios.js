@@ -31,7 +31,7 @@ class AwesomeProject extends Component {
       <View>
         <View style={styles.top}>
           <MenuButton  buttonStyle={[styles.rightButton]} menuGroup={menuGroup}
-            onSelect={this._handleOnSelect.bind(this)} optionSelectedStyle={{backgroundColor:"red"}}/>
+            onSelect={this._handleOnSelect.bind(this)} optionTextStyle={{color:"blue"}} selectedOptionTextStyle={{color:"red"}}/>
         </View>
         <Text style={styles.text}>{`select ${this.state.selectData}`}</Text>
       </View>

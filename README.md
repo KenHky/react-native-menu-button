@@ -25,7 +25,11 @@ button：可定制按钮，默认为{(<Text style={{ fontSize: 20,textAlign:"rig
 
 optionStyle: menu items style，每个menu item的样式。(0.2.0新增)
 
-optionSelectedStyle: menu item style when selected，选择后的item样式，默认无。(0.2.0新增)
+selectedOptionStyle: menu item style when selected，选择后的item样式，默认无。(0.2.0新增)
+
+optionTextStyle: menu item text style ，每个menu item text的样式，默认无。(0.3.0新增)
+
+selectedOptionTextStyle: menu item text style when selected，选择后的item text的样式，默认无。(0.3.0新增)
 
 ### demo
 
