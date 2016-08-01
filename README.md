@@ -23,6 +23,10 @@ onSelect：选择一个选项后的回调，参数为menu数据的value值。
 
 button：可定制按钮，默认为{(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)} (0.1.0新增)。
 
+optionStyle: menu items style，每个menu item的样式。(0.2.0新增)
+
+optionSelectedStyle: menu item style when selected，选择后的item样式，默认无。(0.2.0新增)
+
 ### demo
 
     cd demo
@@ -62,7 +66,7 @@ button：可定制按钮，默认为{(<Text style={{ fontSize: 20,textAlign:"rig
           <View>
             <View style={styles.top}>
               <MenuButton  buttonStyle={[styles.rightButton]} menuGroup={menuGroup}
-                onSelect={this._handleOnSelect.bind(this)}/>
+            onSelect={this._handleOnSelect.bind(this)} optionSelectedStyle={{backgroundColor:"red"}}/>
             </View>
             <Text style={styles.text}>{`select ${this.state.selectData}`}</Text>
           </View>

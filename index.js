@@ -31,7 +31,8 @@ const MenuButton = React.createClass({
         return {
             openMenu:'',
             menuName:this.makeName (),
-            layout:{width:0,height:0,x:0,y:0}
+            layout:{width:0,height:0,x:0,y:0},
+            selectMenu:''
         }
     },
     openMenu (menuName) {
@@ -53,6 +54,7 @@ const MenuButton = React.createClass({
     },
     onPress (value) {
         this.closeMenu()
+        this.setState({selectMenu:value})
         this.props.onSelect(value)
     },
     onLayout (e) {
@@ -60,10 +62,10 @@ const MenuButton = React.createClass({
         console.log("layout::::::",e.nativeEvent.layout)
     },
     render () {
-        const {openMenu,menuName,layout} = this.state
-        const {buttonStyle,menuGroup,optionsStyle,button} = this.props
+        const {openMenu,menuName,layout,selectMenu} = this.state
+        const {buttonStyle,menuGroup,optionsStyle,button,optionStyle,optionSelectedStyle} = this.props
         const window = Dimensions.get('window')
-        const optionsStyles = Platform.OS === 'android'?{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}:{...optionsStyle,top:layout.y,right:(window.width-layout.x-layout.width)}
+        const optionsStyles = Platform.OS === 'android'?{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}:{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}
         const buttonContent = button?button:(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)
         return (
             <View style={buttonStyle} onLayout={this.onLayout}>
@@ -75,8 +77,12 @@ const MenuButton = React.createClass({
                                     {
                                         menuGroup.map((menu)=> {
                                             if (!menu.hide) {
+                                                let selectStyle = ''
+                                                if (selectMenu==menu.value&&optionSelectedStyle) {
+                                                    selectStyle = optionSelectedStyle
+                                                }
                                                 return (
-                                                    <MenuOption key={menu.key} onPress={this.onPress.bind(null,menu.value)}>
+                                                    <MenuOption key={menu.key} onPress={this.onPress.bind(null,menu.value)}  style={[optionStyle,selectStyle]}>
                                                         <Text>{menu.text}</Text>
                                                     </MenuOption>
                                                 )
