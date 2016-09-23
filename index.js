@@ -62,17 +62,18 @@ const MenuButton = React.createClass({
         console.log("layout::::::",e.nativeEvent.layout)
     },
     render () {
+        const onLandScapeMode = !!this.props.landscape;
         const {openMenu,menuName,layout,selectMenu} = this.state
         const {buttonStyle,menuGroup,optionsStyle,button,optionStyle,selectedOptionStyle,optionTextStyle,selectedOptionTextStyle} = this.props
         const window = Dimensions.get('window')
-        const optionsStyles = Platform.OS === 'android'?{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}:{top:layout.y,right:(window.width-layout.x-layout.width), ...optionsStyle}
+        const optionsStyles = Platform.OS === 'android'?{top:layout.y,right:((onLandScapeMode ? window.height : window.width)-layout.x-layout.width), ...optionsStyle}:{top:layout.y,right:((onLandScapeMode ? window.height : window.width)-layout.x-layout.width), ...optionsStyle}
         const buttonContent = button?button:(<Text style={{ fontSize: 20,textAlign:"right" }}>&#8942;</Text>)
         return (
             <View style={buttonStyle} onLayout={this.onLayout}>
                 <MenuSwitch content={buttonContent} onPress={this.toggleMenu}></MenuSwitch>
                 {
                     openMenu==menuName?(
-                        <MenuModal onPress={this.closeMenu}>
+                        <MenuModal landscape={onLandScapeMode} onPress={this.closeMenu}>
                                 <MenuOptions style={optionsStyles}>
                                     {
                                         menuGroup.map((menu)=> {
