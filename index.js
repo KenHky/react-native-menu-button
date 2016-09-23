@@ -73,7 +73,7 @@ const MenuButton = React.createClass({
                 <MenuSwitch content={buttonContent} onPress={this.toggleMenu}></MenuSwitch>
                 {
                     openMenu==menuName?(
-                        <MenuModal onPress={this.closeMenu}>
+                        <MenuModal landscape={onLandScapeMode} onPress={this.closeMenu}>
                                 <MenuOptions style={optionsStyles}>
                                     {
                                         menuGroup.map((menu)=> {
