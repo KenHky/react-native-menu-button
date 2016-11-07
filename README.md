@@ -3,9 +3,11 @@ dropdown menu button for react native
 
 ### 1.0.0 版本更新
 fixed issue [https://github.com/KenHky/react-native-menu-button/issues/4](https://github.com/KenHky/react-native-menu-button/issues/4)
+
 解决了转屏后menu计算位置不对的问题。
-重构了一次代码，语法更符合规范。
-请使用 0.25+ 版本的react native。
+
+重构了一些代码，语法更符合规范, 请使用 0.25+ 版本的react native。
+
 api 没有变化。
 
 ### 简介
