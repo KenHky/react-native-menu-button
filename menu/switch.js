@@ -1,6 +1,5 @@
-
-module.exports = (React, { View,TouchableOpacity }, { Styles }) => {
-    const MenuSwitch = React.createClass({
+module.exports = (React, { Component, View, TouchableOpacity }, { Styles }) => {
+    class MenuSwitch extends Component {
         render() {
             return (
                 <TouchableOpacity onPress={this.props.onPress}>
@@ -8,6 +7,6 @@ module.exports = (React, { View,TouchableOpacity }, { Styles }) => {
                 </TouchableOpacity>
             )
         }
-    })
+    }
     return MenuSwitch
 }

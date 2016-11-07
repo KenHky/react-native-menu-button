@@ -1,6 +1,5 @@
-
-module.exports = (React, { View, }, { Styles }) => {
-    const MenuOptions = React.createClass({
+module.exports = (React, { Component, View }, { Styles }) => {
+    class MenuOptions extends Component {
         render() {
             return (
                 <View style={[Styles.options, this.props.style]}>
@@ -8,6 +7,6 @@ module.exports = (React, { View, }, { Styles }) => {
                 </View>
             )
         }
-    })
+    }
     return MenuOptions
 }

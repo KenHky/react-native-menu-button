@@ -1,4 +1,8 @@
-
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
 
 import React, { Component } from 'react';
 import {
@@ -7,13 +11,9 @@ import {
   Text,
   View
 } from 'react-native';
-
 import MenuButton from 'react-native-menu-button'
 
-class AwesomeProject extends Component {
-  componentDidMount() {
-
-  }
+export default class rndemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,19 +23,26 @@ class AwesomeProject extends Component {
   _handleOnSelect (value) {
     this.setState({selectData:value})
   }
-
   render() {
-    menuGroup= [{key:"0",value:"menu1",text:"menu1"},{key:"1",value:"menu2",text:"menu2"},{key:"2",value:"菜单3",text:"菜单3"},{key:"3",value:"菜单4",text:"菜单4"}]
-
+    menuGroup= [
+      {key:"0",value:"menu1",text:"menu1"},
+      {key:"1",value:"menu2",text:"menu2"},
+      {key:"2",value:"菜单3",text:"菜单3"},
+      {key:"3",value:"菜单4",text:"菜单4"},
+    ]
     return (
       <View>
         <View style={styles.top}>
-          <MenuButton  buttonStyle={[styles.rightButton]} menuGroup={menuGroup}
-            onSelect={this._handleOnSelect.bind(this)} optionTextStyle={{color:"blue"}} selectedOptionTextStyle={{color:"red"}}/>
+          <MenuButton  
+            buttonStyle={[styles.rightButton]} 
+            menuGroup={menuGroup}
+            onSelect={this._handleOnSelect.bind(this)} 
+            optionSelectedStyle={{backgroundColor:"red"}}
+          />
         </View>
         <Text style={styles.text}>{`select ${this.state.selectData}`}</Text>
       </View>
-    );
+    )
   }
 }
 
@@ -62,6 +69,6 @@ const styles = StyleSheet.create({
     right: 2,
     padding: 8
   },
-});
+})
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+AppRegistry.registerComponent('rndemo', () => rndemo)

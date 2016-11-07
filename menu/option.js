@@ -1,12 +1,16 @@
-module.exports = (React, { View,TouchableOpacity }, { Styles }) => {
-    const MenuOption = React.createClass({
+module.exports = (React, { Component, View, TouchableOpacity }, { Styles }) => {
+    class MenuOption extends Component {
         render() {
+            const { style, onPress, children } = this.props
             return (
-                <TouchableOpacity style={[Styles.option, this.props.style]} onPress={this.props.onPress}>
-                    { this.props.children }
+                <TouchableOpacity 
+                    style={[Styles.option, style]} 
+                    onPress={onPress}
+                >
+                    { children }
                 </TouchableOpacity>
             )
         }
-    })
+    }
     return MenuOption
 }

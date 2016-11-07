@@ -1,6 +1,5 @@
-module.exports = (React,Components) => {
-  const { Dimensions, StyleSheet } = Components;
-  const window = Dimensions.get('window');
+module.exports = (React, Components) => {
+  const { StyleSheet } = Components
 
   return StyleSheet.create({
     options: {
@@ -8,7 +7,6 @@ module.exports = (React,Components) => {
       borderRadius: 2,
       backgroundColor: 'white',
       width: 200,
-      // Shadow only works on iOS.
       shadowColor: 'black',
       shadowOpacity: 0.3,
       shadowOffset: { width: 3, height: 3 },
@@ -16,14 +14,10 @@ module.exports = (React,Components) => {
       // This will elevate the view on Android, causing shadow to be drawn.
       elevation: 5
     },
-    modal: {
-      width:window.width,
-      height:window.height,
-    },
     option: {
       padding: 10,
       backgroundColor: 'transparent',
       flex: 1
     }
-  });
-};
+  })
+}
