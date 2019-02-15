@@ -19,7 +19,7 @@
     "ios"
   ],
   "dependencies": {
-    "react-native-root-modal": "~1.0.6"
+    "react-native-root-modal": "~3.1.1"
   },
   "author": "Ken Huang <ken.hky@163.com> ",
   "license": "MIT"
